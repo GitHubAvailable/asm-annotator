@@ -1,0 +1,10 @@
+def parse(code: str) -> list[str]:
+    import re
+    lines = code.splitlines()
+    parsed_lines = []
+    for line in lines:
+        # Remove inline comments
+        clean_line = re.sub(r'(;|//).*', '', line).strip()
+        if clean_line:  # Ignore empty lines
+            parsed_lines.append(clean_line)
+    return parsed_lines
